@@ -1,0 +1,15 @@
+[
+    {
+      "timestamp": "2025-05-17T12:45:00Z",
+      "level": "INFO",
+      "message": "User logged in successfully",
+      "service": "auth-service"
+    },
+    {
+      "timestamp": "2025-05-17T12:45:10Z",
+      "level": "ERROR",
+      "message": "Database connection timeout",
+      "service": "db-service"
+    }
+  ]
+  

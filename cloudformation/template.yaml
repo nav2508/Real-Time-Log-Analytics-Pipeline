@@ -1,0 +1,21 @@
+Resources:
+  MyLogStream:
+    Type: AWS::Kinesis::Stream
+    Properties:
+      ShardCount: 1
+
+  MyLogBucket:
+    Type: AWS::S3::Bucket
+
+  LogProcessorLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Runtime: python3.9
+      Handler: processor.lambda_handler
+      Role: !GetAtt LambdaExecRole.Arn
+      Code:
+        S3Bucket: my-lambda-code-bucket
+        S3Key: processor.zip
+      Environment:
+        Variables:
+          S3_BUCKET: !Ref MyLogBucket
